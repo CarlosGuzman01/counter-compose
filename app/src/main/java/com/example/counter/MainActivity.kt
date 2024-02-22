@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,11 +51,13 @@ class MainActivity : ComponentActivity() {
 fun App( modifier: Modifier = Modifier){
 
 
-    var counter by remember {
+    var counter by rememberSaveable {
         mutableStateOf(0)
     }
 
-    val buttonModifier = Modifier.width(150.dp).height(60.dp)
+    val buttonModifier = Modifier
+        .width(150.dp)
+        .height(60.dp)
 
     Column (verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally){
 
